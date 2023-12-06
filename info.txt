@@ -1,0 +1,14 @@
+---------------------- Credenziali db --------------------------
+Username: admin_esame
+Password: basiDati2024!
+
+---------------------- Aggiungi il driver JDBC al progetto --------------------------
+
+Scarica il driver JDBC per il database a cui vuoi connetterti (MySQL).
+Link: https://downloads.mysql.com/archives/c-j/
+Link tutorial: https://www.youtube.com/watch?v=e8g9eNnFpHQ
+In IntelliJ, vai su "File" -> "Project Structure" -> "Libraries".
+Clicca su "+" per aggiungere una nuova libreria e seleziona il file JAR del driver JDBC.
+
+Nota bene: lavoriamo su XAMPP, quindi in locale, perchè su siti di hosting è difficile lavorare, dato
+che gli script che utilizzano i db devono girare sul server utilizzato
