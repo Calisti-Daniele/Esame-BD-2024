@@ -1,22 +1,22 @@
 import database.DatabaseConnection;
+import database.SQL;
 
 import java.sql.*;
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        try (Connection connection = DatabaseConnection.getConnection()) {
-            // Esempio di esecuzione di una query
-            String sql = "SELECT * FROM utenti";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                // Leggi i dati dal risultato della query
-                String colonna1 = resultSet.getString("id");
-                String colonna2 = resultSet.getString("nome");
+    public static void main(String[] args) {
 
-                // Fai qualcosa con i dati
-                System.out.println(colonna1 + ", " + colonna2);
-            }
+        try {
+
+            Connection connection = DatabaseConnection.getConnection();
+
+            SQL sql = new SQL("",connection);
+
+            sql.setQuery("SELECT * FROM utenti");
+
+            ResultSet resultSet = sql.execQuery();
+
+            sql.stampaSelect(resultSet, new String[]{"id", "nome"});
 
         } catch (SQLException e) {
             e.printStackTrace();
