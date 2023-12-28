@@ -19,6 +19,33 @@
 
 - Una selezione aggregata su raggruppamenti con condizioni (es. dipartimenti la cui somma degli stipendi dei dipendenti è > 100k)
 
+  //Prendo tutti gli ordini nei quali ho ordinato complessivamente più di 10 farmaci
+  SELECT o.dataOrdine, o.importoLordo, SUM(quantita) AS quantita_totale FROM ordini_effettuati of INNER JOIN ordini o ON o.idOrdine = of.ksOrdine GROUP BY o.idOrdine HAVING quantita_totale > 10
+
 - Una selezione aggregata su raggruppamenti con condizioni che includano un’altra funzione di raggruppamento (es. dipartimenti la cui somma degli stipendi è la più alta)
+
+  //Prendo il cliente che ha comprato più farmaci di tutti (N.B. non quello che ha speso di più)
+  SELECT c.codiceFiscale
+  FROM clienti c
+  INNER JOIN acquisti a ON c.codiceFiscale = a.ksCliente
+  GROUP BY c.codiceFiscale
+  HAVING SUM(a.quantita) >= ALL (
+      SELECT SUM(quantita)
+      FROM acquisti
+      GROUP BY ksCliente
+  );
+
+  //Prendo il cliente che ha speso di più di tutti
+  SELECT c.codiceFiscale
+  FROM clienti c
+  INNER JOIN acquisti a ON c.codiceFiscale = a.ksCliente
+  INNER JOIN farmaci f ON a.ksFarmaco = f.numeroAIC
+  GROUP BY c.codiceFiscale
+  HAVING SUM(a.quantita * f.prezzoVendita) >= ALL (
+        SELECT SUM(a.quantita * f.prezzoVendita)
+        FROM acquisti a JOIN farmaci f ON a.ksFarmaco = f.numeroAIC
+        GROUP BY a.ksCliente
+  );
+
 - Una selezione con operazioni insiemistiche
 - Una selezione con l’uso appropriato della divisione.
