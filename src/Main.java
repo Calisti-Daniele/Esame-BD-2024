@@ -1,4 +1,5 @@
 import database.DatabaseConnection;
+import database.Query;
 import database.SQL;
 
 import java.sql.*;
@@ -12,11 +13,13 @@ public class Main {
 
             SQL sql = new SQL("",connection);
 
-            sql.setQuery("Select nome, quantita FROM farmaci WHERE (quantita > 2 OR prezzoVendita > 20) AND data_scadenza > CURDATE()");
+            Query q = new Query();
+
+            sql.setQuery(q.getQuery(3));
 
             ResultSet resultSet = sql.execQuery();
 
-            sql.stampaSelect(resultSet, new String[]{"nome", "quantita"});
+            sql.stampaSelect(resultSet, q.getColumns(3));
 
         } catch (SQLException e) {
             e.printStackTrace();
