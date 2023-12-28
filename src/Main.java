@@ -12,11 +12,11 @@ public class Main {
 
             SQL sql = new SQL("",connection);
 
-            sql.setQuery("SELECT * FROM utenti");
+            sql.setQuery("Select nome, quantita FROM farmaci WHERE (quantita > 2 OR prezzoVendita > 20) AND data_scadenza > CURDATE()");
 
             ResultSet resultSet = sql.execQuery();
 
-            sql.stampaSelect(resultSet, new String[]{"id", "nome"});
+            sql.stampaSelect(resultSet, new String[]{"nome", "quantita"});
 
         } catch (SQLException e) {
             e.printStackTrace();

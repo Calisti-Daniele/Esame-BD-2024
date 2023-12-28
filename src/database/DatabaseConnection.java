@@ -12,7 +12,7 @@ public class DatabaseConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Imposta le informazioni di connessione al tuo database
-            String url = "jdbc:mysql://localhost:3306/esamebd";
+            String url = "jdbc:mysql://localhost:3307/esamebd";
             String username = "admin_esame";
             String password = "basiDati2024!";
 

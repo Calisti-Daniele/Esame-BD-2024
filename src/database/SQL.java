@@ -57,9 +57,9 @@ public class SQL {
         for(int i=0; i<values.size(); i++){
 
             if(i % offset == 0)
-                System.out.print(values.get(i) + " ");
-            else
-                System.out.println(values.get(i) + " ");
+                System.out.println();
+
+            System.out.print(values.get(i) + " ");
 
         }
     }
