@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a4c91fc-0302-4938-a326-115473f4c8a7" name="Changes" comment="Creazione DB, popolato DB, scrittura prime query">
+    <list default="true" id="8a4c91fc-0302-4938-a326-115473f4c8a7" name="Changes" comment="Inserite altre 2 query">
+      <change afterPath="$PROJECT_DIR$/query.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/queryEsame.txt" beforeDir="false" afterPath="$PROJECT_DIR$/queryEsame.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,7 @@
       <workItem from="1701898392727" duration="3114000" />
       <workItem from="1701941524575" duration="49000" />
       <workItem from="1703098968610" duration="1241000" />
-      <workItem from="1703758304679" duration="5000000" />
+      <workItem from="1703758304679" duration="5961000" />
     </task>
     <task id="LOCAL-00001" summary="Reset progetto">
       <option name="closed" value="true" />
@@ -126,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703766082594</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Inserite altre 2 query">
+      <option name="closed" value="true" />
+      <created>1703772179784</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1703772179784</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +158,7 @@
     <MESSAGE value="Creazione tabela utenti di prova" />
     <MESSAGE value="creazione classe SQL" />
     <MESSAGE value="Creazione DB, popolato DB, scrittura prime query" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creazione DB, popolato DB, scrittura prime query" />
+    <MESSAGE value="Inserite altre 2 query" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserite altre 2 query" />
   </component>
 </project>
