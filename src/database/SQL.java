@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import Utility.Utility;
 
 public class SQL {
     private String query;
@@ -44,7 +45,7 @@ public class SQL {
         return statement.executeQuery();
     }
 
-    public void stampaSelect(ResultSet resultSet, String[] columns) throws SQLException {
+    public String[][] getData(ResultSet resultSet, String[] columns) throws SQLException {
 
         List<String> values = new ArrayList<>();
         int offset = columns.length;
@@ -54,13 +55,16 @@ public class SQL {
                 values.add(resultSet.getString(columns[i]));
         }
 
-        for(int i=0; i<values.size(); i++){
+        int numRows = values.size() / offset;
 
-            if(i % offset == 0)
-                System.out.println();
+        String[][] data = new String[numRows][offset];
 
-            System.out.print(values.get(i) + " ");
-
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < offset; j++) {
+                data[i][j] = values.get(i * offset + j);
+            }
         }
+
+        return data;
     }
 }

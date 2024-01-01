@@ -1,6 +1,6 @@
 - Una selezione ordinata su un attributo di una tabella con condizioni AND e OR;
 
-  Select nome, quantita FROM farmaci WHERE (quantita > 2 OR prezzoVendita > 20) AND data_scadenza > CURDATE()
+  Select nome, quantita FROM farmaci WHERE (quantita > 3 OR prezzoVendita > 15) AND (data_scadenza > CURRENT_DATE) ORDER BY quantita DESC
 
 - Una selezione su due o più tabelle con condizioni;
 
@@ -48,4 +48,8 @@
   );
 
 - Una selezione con operazioni insiemistiche
+
+  //Prendo i farmaci in magazzino che nessuno ha mai acquistato
+  SELECT fa.numeroAIC,fa.nome,fa.tipo FROM farmaci fa EXCEPT SELECT f.numeroAIC,f.nome,f.tipo FROM acquisti a INNER JOIN farmaci f ON a.ksFarmaco = f.numeroAIC;
+
 - Una selezione con l’uso appropriato della divisione.
