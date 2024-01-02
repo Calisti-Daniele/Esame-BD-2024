@@ -13,8 +13,8 @@ public class Query {
         query.add("Select o.dataOrdine, f.nome, of.quantita From ordini o INNER JOIN ordini_effettuati of ON of.ksOrdine = o.idOrdine INNER JOIN farmaci f ON of.ksFarmaco = f.numeroAIC WHERE dataOrdine <= CURDATE();");
         query.add("SELECT SUM(quantita) AS farmaciInMagazzino FROM `farmaci` WHERE data_scadenza > CURDATE();");
         query.add("SELECT c.codiceFiscale, SUM(f.prezzoVendita * a.quantita) AS totale_speso FROM acquisti a INNER JOIN clienti c ON a.ksCliente = c.codiceFiscale INNER JOIN farmaci f ON a.ksFarmaco = f.numeroAIC GROUP BY c.codiceFiscale;");
-        query.add("SELECT o.dataOrdine,o.importoNetto, o.importoLordo, SUM(quantita) AS quantita_totale FROM ordini_effettuati of INNER JOIN ordini o ON o.idOrdine = of.ksOrdine GROUP BY o.idOrdine HAVING quantita_totale > 10");
-        query.add("SELECT c.codiceFiscale,c.nome,c.cognome FROM clienti c INNER JOIN acquisti a ON c.codiceFiscale = a.ksCliente GROUP BY c.codiceFiscale HAVING SUM(a.quantita) >= ALL ( SELECT SUM(quantita) FROM acquisti GROUP BY ksCliente );");
+        query.add("SELECT o.dataOrdine,o.importoNetto, o.importoLordo, SUM(quantita) AS quantita_totale FROM ordini_effettuati of INNER JOIN ordini o ON o.idOrdine = of.ksOrdine GROUP BY o.dataOrdine, o.importoNetto, o.importoLordo HAVING quantita_totale > 10");
+        query.add("SELECT c.codiceFiscale,c.nome,c.cognome FROM clienti c INNER JOIN acquisti a ON c.codiceFiscale = a.ksCliente GROUP BY c.codiceFiscale,c.nome,c.cognome HAVING SUM(a.quantita) >= ALL ( SELECT SUM(quantita) FROM acquisti GROUP BY ksCliente );");
         query.add("SELECT fa.numeroAIC,fa.nome,fa.tipo FROM farmaci fa EXCEPT SELECT f.numeroAIC,f.nome,f.tipo FROM acquisti a INNER JOIN farmaci f ON a.ksFarmaco = f.numeroAIC;");
     }
 

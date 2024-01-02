@@ -1,10 +1,10 @@
 package gui;
 
-import database.Query;
 import database.SQL;
-import gui.ButtonListener;
+import database.Query;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,19 +19,33 @@ public class InterfacciaGrafica extends JFrame {
     private SQL sql;
 
     public InterfacciaGrafica(SQL sql) {
-
         this.sql = sql;
 
-        // Imposta le proprietà della finestra principale
+        table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+                                                           boolean hasFocus, int row, int column) {
+                Component rendererComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                // Alterna il colore delle righe
+                if (row % 2 == 0) {
+                    rendererComponent.setBackground(Color.WHITE);
+                } else {
+                    rendererComponent.setBackground(Color.LIGHT_GRAY);
+                }
+
+                return rendererComponent;
+            }
+        });
+
         setTitle("Progetto Daniele Calisti e Vincenzo Davide");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        label.setPreferredSize(new Dimension(800, 80));
-        // Crea i bottoni e aggiungili al pannello
+        label.setHorizontalAlignment(JLabel.CENTER);
+        label.setFont(new Font("Arial",Font.PLAIN, 14));
         createButtons();
 
-        // Crea il layout della finestra
         setLayout(new BorderLayout());
         add(createButtonPanel(), BorderLayout.NORTH);
         add(label, BorderLayout.CENTER);
@@ -39,12 +53,15 @@ public class InterfacciaGrafica extends JFrame {
     }
 
     private void createButtons() {
-        Query q = new Query();
-        int nButtons = q.getNumQueries();
-        buttons = new JButton[nButtons];
+        Query queryManager = new Query();
+        int numberOfQueries = queryManager.getNumQueries();
+        buttons = new JButton[numberOfQueries];
 
-        for (int i = 0; i < nButtons; i++) {
+        for (int i = 0; i < numberOfQueries; i++) {
             buttons[i] = new JButton("Query " + (i + 1));
+            buttons[i].setFont(new Font("Arial", Font.PLAIN, 14)); // Modificato il font
+            buttons[i].setForeground(Color.BLUE); // Cambiato il colore del testo
+            buttons[i].setBackground(Color.WHITE); // Cambiato il colore di sfondo
             buttons[i].addActionListener(new ButtonListener(i, sql, label, table, scrollPane));
         }
     }
@@ -56,6 +73,4 @@ public class InterfacciaGrafica extends JFrame {
         }
         return buttonPanel;
     }
-
-
 }
