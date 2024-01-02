@@ -39,9 +39,9 @@ public class Query {
     }
 
     public Query() {
-       loadQueries();
-       loadColumns();
-       loadDesc();
+        loadQueries();
+        loadColumns();
+        loadDesc();
     }
 
     public int getNumQueries(){

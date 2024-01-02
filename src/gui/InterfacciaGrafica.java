@@ -4,6 +4,7 @@ import database.SQL;
 import database.Query;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -38,8 +39,11 @@ public class InterfacciaGrafica extends JFrame {
             }
         });
 
+
         setTitle("Progetto Daniele Calisti e Vincenzo Davide");
-        setSize(800, 600);
+        setSize(900, 600);
+        setLocationRelativeTo(null); //setto la finestra in posizione centrale all'avvio
+        setResizable(false); //setto che non si può ridimensionare la finestra
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         label.setHorizontalAlignment(JLabel.CENTER);
@@ -60,17 +64,23 @@ public class InterfacciaGrafica extends JFrame {
         for (int i = 0; i < numberOfQueries; i++) {
             buttons[i] = new JButton("Query " + (i + 1));
             buttons[i].setFont(new Font("Arial", Font.PLAIN, 14)); // Modificato il font
-            buttons[i].setForeground(Color.BLUE); // Cambiato il colore del testo
-            buttons[i].setBackground(Color.WHITE); // Cambiato il colore di sfondo
+            buttons[i].setForeground(Color.DARK_GRAY); // Cambiato il colore del testo
+            buttons[i].setBackground(Color.BLACK); // Cambiato il colore di sfondo (NON FUNZIONA)
             buttons[i].addActionListener(new ButtonListener(i, sql, label, table, scrollPane));
+
         }
     }
 
     private JPanel createButtonPanel() {
+
         JPanel buttonPanel = new JPanel();
+
+        buttonPanel.setBackground(Color.LIGHT_GRAY);
+
         for (JButton button : buttons) {
             buttonPanel.add(button);
         }
+
         return buttonPanel;
     }
 }
