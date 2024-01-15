@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a4c91fc-0302-4938-a326-115473f4c8a7" name="Changes" comment="DB aggiornato">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8a4c91fc-0302-4938-a326-115473f4c8a7" name="Changes" comment="Modifiche">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/esamebd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/esamebd.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/queryEsame.txt" beforeDir="false" afterPath="$PROJECT_DIR$/queryEsame.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Query.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/InterfacciaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/InterfacciaGrafica.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,13 +157,13 @@
       <option name="project" value="LOCAL" />
       <updated>1704216494275</updated>
     </task>
-    <task id="LOCAL-00009" summary="Implementata interfaccia grafica e descrizione query">
+    <task id="LOCAL-00009" summary="Modifiche">
       <option name="closed" value="true" />
-      <created>1704141218996</created>
+      <created>1705337954084</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1704141218996</updated>
+      <updated>1705337954084</updated>
     </task>
     <task id="LOCAL-00010" summary="Implementata interfaccia grafica e descrizione query">
       <option name="closed" value="true" />
@@ -173,7 +173,7 @@
       <option name="project" value="LOCAL" />
       <updated>1704211747966</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +202,7 @@
     <MESSAGE value="Agevolate query" />
     <MESSAGE value="Implementata interfaccia grafica e descrizione query" />
     <MESSAGE value="DB aggiornato" />
-    <option name="LAST_COMMIT_MESSAGE" value="DB aggiornato" />
+    <MESSAGE value="Modifiche" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modifiche" />
   </component>
 </project>

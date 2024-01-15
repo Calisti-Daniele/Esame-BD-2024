@@ -16,6 +16,7 @@ public class Query {
         query.add("SELECT o.dataOrdine,o.importoNetto, o.importoLordo, SUM(quantita) AS quantita_totale FROM ordini_effettuati of INNER JOIN ordini o ON o.idOrdine = of.ksOrdine GROUP BY o.dataOrdine, o.importoNetto, o.importoLordo HAVING quantita_totale > 10");
         query.add("SELECT c.codiceFiscale,c.nome,c.cognome FROM clienti c INNER JOIN acquisti a ON c.codiceFiscale = a.ksCliente GROUP BY c.codiceFiscale,c.nome,c.cognome HAVING SUM(a.quantita) >= ALL ( SELECT SUM(quantita) FROM acquisti GROUP BY ksCliente );");
         query.add("SELECT fa.numeroAIC,fa.nome,fa.tipo FROM farmaci fa EXCEPT SELECT f.numeroAIC,f.nome,f.tipo FROM acquisti a INNER JOIN farmaci f ON a.ksFarmaco = f.numeroAIC;");
+        query.add("SELECT f.numeroAIC, f.nome, f.tipo FROM farmaci f WHERE NOT EXISTS (SELECT c.codiceFiscale FROM clienti c WHERE NOT EXISTS (SELECT * FROM acquisti a WHERE a.ksCliente = c.codiceFiscale AND a.ksFarmaco = f.numeroAIC));");
     }
 
     private void loadColumns(){
@@ -25,6 +26,7 @@ public class Query {
         columns.add(new String[]{"codiceFiscale","totale_speso"});
         columns.add(new String[]{"dataOrdine","importoNetto","importoLordo","quantita_totale"});
         columns.add(new String[]{"codiceFiscale","nome","cognome"});
+        columns.add(new String[]{"numeroAIC","nome","tipo"});
         columns.add(new String[]{"numeroAIC","nome","tipo"});
     }
 
@@ -36,6 +38,7 @@ public class Query {
         descrizioni.add("<html>Una selezione aggregata su raggruppamenti con condizioni<br><b>Elencare tutti gli ordini che includono complessivamente più di 10 farmaci.</b>");
         descrizioni.add("<html>Una selezione aggregata su raggruppamenti con condizioni che includano un’altra funzione di raggruppamento<br><b>Individuare il cliente che ha acquistato più farmaci (N.B. non quello che ha speso di più) </b>");
         descrizioni.add("<html>Una selezione con operazioni insiemistiche<br><b>Elencare tutti i farmaci che non sono mai stati acquistati.</b>");
+        descrizioni.add("<html>Una selezione con l'uso appropriato della divisione<br><b>Elencare i farmaci che sono stati acquistati da tutti gli utenti.</b>");
     }
 
     public Query() {

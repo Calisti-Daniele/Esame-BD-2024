@@ -50,8 +50,26 @@
 - Una selezione con operazioni insiemistiche
 
     //Elencare tutti i farmaci che non sono mai stati acquistati.
-    SELECT fa.numeroAIC,fa.nome,fa.tipo FROM farmaci fa EXCEPT SELECT f.numeroAIC,f.nome,f.tipo FROM acquisti a INNER JOIN farmaci f ON a.ksFarmaco = f.numeroAIC
+    SELECT fa.numeroAIC,fa.nome,fa.tipo
+    FROM farmaci fa
+    EXCEPT
+        SELECT f.numeroAIC,f.nome,f.tipo FROM acquisti a
+        INNER JOIN farmaci f ON a.ksFarmaco = f.numeroAIC
 
 - Una selezione con l’uso appropriato della divisione.
 
-    //Elencare i farmaci che sono stati prodotti da tutte le case produttrici
+    //Elencare i farmaci che sono stati acquistati da tutti gli utenti
+    SELECT f.numeroAIC, f.nome, f.tipo
+    FROM Farmaci f
+    WHERE NOT EXISTS (
+        // trovare i clienti che non hanno acquistato un determinato farmaco
+        SELECT c.codiceFiscale
+        FROM Clienti c
+        WHERE NOT EXISTS (
+            SELECT *
+            FROM acquisti a
+            WHERE a.ksCliente = c.codiceFiscale
+              AND a.ksFarmaco = f.numeroAIC
+        )
+    );
+

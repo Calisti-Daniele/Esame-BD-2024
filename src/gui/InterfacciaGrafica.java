@@ -65,7 +65,6 @@ public class InterfacciaGrafica extends JFrame {
             buttons[i] = new JButton("Query " + (i + 1));
             buttons[i].setFont(new Font("Arial", Font.PLAIN, 14)); // Modificato il font
             buttons[i].setForeground(Color.DARK_GRAY); // Cambiato il colore del testo
-            buttons[i].setBackground(Color.BLACK); // Cambiato il colore di sfondo (NON FUNZIONA)
             buttons[i].addActionListener(new ButtonListener(i, sql, label, table, scrollPane));
 
         }
