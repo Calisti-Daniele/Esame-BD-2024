@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Gen 02, 2024 alle 18:26
+-- Creato il: Gen 15, 2024 alle 18:22
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -94,16 +94,15 @@ INSERT INTO `clienti` (`codiceFiscale`, `nome`, `cognome`, `email`, `pwd`) VALUE
 
 CREATE TABLE `elencoTelefonico` (
   `telefono` varchar(8) NOT NULL,
-  `ksCasaProduttrice` varchar(11) DEFAULT NULL,
-    PRIMARY KEY (telefono)
+  `ksCasaProduttrice` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `elencoTelefonico`
 --
 
-INSERT INTO `elencoTelefonico` (`idElencoTelefonico`, `telefono`, `ksCasaProduttrice`) VALUES
-(1, '06780531', '16251911000');
+INSERT INTO `elencoTelefonico` (`telefono`, `ksCasaProduttrice`) VALUES
+('06780531', '16251911000');
 
 -- --------------------------------------------------------
 
@@ -204,7 +203,7 @@ ALTER TABLE `clienti`
 -- Indici per le tabelle `elencoTelefonico`
 --
 ALTER TABLE `elencoTelefonico`
-  ADD PRIMARY KEY (`idElencoTelefonico`),
+  ADD PRIMARY KEY (`telefono`),
   ADD KEY `ksCasaProduttrice` (`ksCasaProduttrice`);
 
 --
@@ -237,12 +236,6 @@ ALTER TABLE `ordini_effettuati`
 --
 ALTER TABLE `acquisti`
   MODIFY `idAcquisto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT per la tabella `elencoTelefonico`
---
-ALTER TABLE `elencoTelefonico`
-  MODIFY `idElencoTelefonico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `ordini`
