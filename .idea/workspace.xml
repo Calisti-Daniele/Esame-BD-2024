@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a4c91fc-0302-4938-a326-115473f4c8a7" name="Changes" comment="Implementata interfaccia grafica e descrizione query">
-      <change afterPath="$PROJECT_DIR$/src/gui/ShadowButton.java" afterDir="false" />
+    <list default="true" id="8a4c91fc-0302-4938-a326-115473f4c8a7" name="Changes" comment="DB aggiornato">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/Query.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/InterfacciaGrafica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/InterfacciaGrafica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/esamebd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/esamebd.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/queryEsame.txt" beforeDir="false" afterPath="$PROJECT_DIR$/queryEsame.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +88,10 @@
       <workItem from="1703098968610" duration="1241000" />
       <workItem from="1703758304679" duration="9574000" />
       <workItem from="1704129164685" duration="7243000" />
+      <workItem from="1704454708263" duration="31000" />
+      <workItem from="1704871900203" duration="183000" />
+      <workItem from="1704895236486" duration="680000" />
+      <workItem from="1705336433870" duration="669000" />
     </task>
     <task id="LOCAL-00001" summary="Reset progetto">
       <option name="closed" value="true" />
@@ -145,13 +149,13 @@
       <option name="project" value="LOCAL" />
       <updated>1703772845585</updated>
     </task>
-    <task id="LOCAL-00008" summary="Agevolate query">
+    <task id="LOCAL-00008" summary="DB aggiornato">
       <option name="closed" value="true" />
-      <created>1703777606134</created>
+      <created>1704216494275</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1703777606134</updated>
+      <updated>1704216494275</updated>
     </task>
     <task id="LOCAL-00009" summary="Implementata interfaccia grafica e descrizione query">
       <option name="closed" value="true" />
@@ -169,8 +173,7 @@
       <option name="project" value="LOCAL" />
       <updated>1704211747966</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +201,7 @@
     <MESSAGE value="Caricato query.sql" />
     <MESSAGE value="Agevolate query" />
     <MESSAGE value="Implementata interfaccia grafica e descrizione query" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementata interfaccia grafica e descrizione query" />
+    <MESSAGE value="DB aggiornato" />
+    <option name="LAST_COMMIT_MESSAGE" value="DB aggiornato" />
   </component>
 </project>

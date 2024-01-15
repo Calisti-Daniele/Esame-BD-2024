@@ -48,4 +48,8 @@
   );
 
 - Una selezione con operazioni insiemistiche
+
+
 - Una selezione con l’uso appropriato della divisione.
+
+    //Elencare i farmaci che sono stati prodotti da tutte le case produttrici

@@ -93,9 +93,9 @@ INSERT INTO `clienti` (`codiceFiscale`, `nome`, `cognome`, `email`, `pwd`) VALUE
 --
 
 CREATE TABLE `elencoTelefonico` (
-  `idElencoTelefonico` int(11) NOT NULL,
   `telefono` varchar(8) NOT NULL,
-  `ksCasaProduttrice` varchar(11) DEFAULT NULL
+  `ksCasaProduttrice` varchar(11) DEFAULT NULL,
+    PRIMARY KEY (telefono)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
